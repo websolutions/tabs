@@ -5,7 +5,6 @@ Content tabs that toggle content when clicked.
 ## Installation
 
 Install via [Bower](http://bower.io):
-
 ```
 $ bower install websolutions/tabs --save
 ```
