@@ -1,52 +1,27 @@
-/*
- * Tabs
+/* Tabs
+   -------------------------------------------------- */
+
+/**
+ * Container
  */
-
-.tabs div.tab-container { 
-  background: #FFFFFF; 
+.tab-container {
   clear: both;
-}
-
-.tabs ul.tab-navigation { 
-  margin: 0; 
-  text-transform: uppercase;
-  padding-left: 0;
-  letter-spacing: 0.15em;
-}
-
-.tabs ul.tab-navigation li {
-  float: left; 
-  display: block; 
-}
-
-.tabs ul.tab-navigation li a, .toggle-menu .hd h5 { 
-  display: block; 
-  line-height: 3em; 
-  text-align: center; 
-  padding: 0 1em; 
-  text-decoration: none; 
-  border-top: 5px solid #93A6B7;
-  font-weight: 700;
-}
-
-.tabs ul.tab-navigation li a:link, .tabs ul.tab-navigation li a:visited {
-  color: #6D7F8D; 
-}
-
-.tabs ul.tab-navigation li a:hover, .tabs ul.tab-navigation li a:active, .tabs ul.tab-navigation li a:hover, .toggle-menu .hd h5:hover { 
-  background: #93A6B7;
-  color: #fff; 
-}
-
-.tabs .tab-navigation li.selected a:link, .tabs .tab-navigation li.selected a:visited,
-.tabs .tab-navigation li.selected a:hover, .tabs .tab-navigation li.selected a:active,
-.toggle-menu .open .hd h5 { 
-  background: #FFFFFF; 
-  outline: none; 
-  border-color: #1DCB98;
-  color: #3D556D;
-}
-
-.tab-container{
   margin-bottom: 1.5em;
 }
+
+/**
+ * Navigation
+ */
+.tab-navigation {
+  margin: 0;
+  padding: 0;
+}
+
+  .tab-navigation > li {
+    display: block;
+    float: left;
+  }
+
+    .tab-navigation > li > a {
+      display: block;
+    }

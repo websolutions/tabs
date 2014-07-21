@@ -3,9 +3,9 @@
 
     var defaults = {
       SelectedClass: "selected",
-      NavigationLinkSelector: "> ul > li > a",
-      ContainerSelector: "> div.tab-container > div",
-      HiddenClass: "narrow"
+      NavigationLinkSelector: "> .tab-navigation > li > a",
+      ContainerSelector: "> .tab-container > div",
+      HiddenClass: "hidden"
     };
 
     var settings = $.extend({}, defaults, options);
