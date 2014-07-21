@@ -36,7 +36,7 @@ The most basic example follows this DOM structure:
 </div>
 ```
 
-And is initialized on DOM ready via:
+And is initialized like so:
 ``` javascript
 $(".tabs").tabs();
 ```
