@@ -1,4 +1,10 @@
-﻿(function ($) {
+﻿/**
+ * wsol.tabs.js 2.0.0
+ * http://github.com/websolutions/tabs
+ */
+
+
+(function ($) {
   $.fn.tabs = function (options) {
 
     var defaults = {
