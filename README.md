@@ -40,14 +40,25 @@ And is initialized like so:
 $(".tabs").tabs();
 ```
 
+The plugin can also be removed afterwards:
+``` javascript
+$(".tabs").untabs();
+```
+
+Or manually changed to a specific tab (index or ID):
+``` javascript
+$(".tabs").tabsGoTo(0);
+```
+
+
 ### Configuring
 
 The jQuery plugin supports a number of configuration options:
 
 Option                      | Type     | Description                                                      | Default
 ----------------------------|----------|------------------------------------------------------------------|--------
-`SelectedClass`             | String   | Class name to apply to the selected tab link                     | `selected`
-`NavigationLinkSelector`    | String   | Selector for tab navigation links                                | `> .tab-navigation > li > a`
-`ContainerSelector`         | String   | Selector for tab containers                                      | `> .tab-container > div`
-`HiddenClass`               | String   | Class name to apply to non-selected tabs                         | `hidden`
+`navigationLinkSelector`    | String   | Selector for tab navigation links                                | `> .tab-navigation > li > a`
+`containerSelector`         | String   | Selector for tab containers                                      | `> .tab-container > div`
+`selectedClass`             | String   | Class name to apply to the selected tab link                     | `selected`
+`hiddenClass`               | String   | Class name to apply to non-selected tabs                         | `hidden`
 

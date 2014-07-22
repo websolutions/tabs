@@ -1,43 +1,84 @@
 ﻿/**
- * wsol.tabs.js 2.0.0
+ * wsol.tabs.js 2.1.0
  * http://github.com/websolutions/tabs
  */
 
 
-(function ($) {
-  $.fn.tabs = function (options) {
+;(function ($, window, document, undefined) {
 
-    var defaults = {
-      SelectedClass: "selected",
-      NavigationLinkSelector: "> .tab-navigation > li > a",
-      ContainerSelector: "> .tab-container > div",
-      HiddenClass: "hidden"
-    };
+  var defaults = {
+    navigationLinkSelector: "> .tab-navigation > li > a",
+    containerSelector: "> .tab-container > div",
+    selectedClass: "selected",
+    hiddenClass: "hidden"
+  };
 
-    var settings = $.extend({}, defaults, options);
+  function Tabs(element, options) {
+    this.$tabPanel = $(element);
+    this.settings = $.extend({}, defaults, options);
 
-    $(this).each(function () {
-      var $TabPanel = $(this);
-      var $NavigationLinks = $(settings.NavigationLinkSelector, $TabPanel);
-      var $Containers = $(settings.ContainerSelector, $TabPanel);
+    this.tabHandler = $.proxy(this.tabHandler, this);
 
-      $Containers.not(':eq(0)').addClass(settings.HiddenClass);
-      $NavigationLinks.first().parent().addClass(settings.SelectedClass);
-
-      $NavigationLinks.each(function (index, value) {
-        $(this).bind("click", function (e) {
-          e.preventDefault();
-
-          var $this = $(this);
-
-          $NavigationLinks.parent().removeClass(settings.SelectedClass);
-          $Containers.addClass(settings.HiddenClass);
-          $Containers.parent().find($this.attr("href")).removeClass(settings.HiddenClass);
-
-          $this.parent().addClass(settings.SelectedClass);
-        });
-      });
-    });
-    return this;
+    this.init();
   }
+
+  Tabs.prototype.init = function() {
+    this.$navigationLinks = this.$tabPanel.find(this.settings.navigationLinkSelector);
+    this.$containers = this.$tabPanel.find(this.settings.containerSelector);
+
+    this.changeTab(0);
+
+    // Handle events
+    this.$navigationLinks.on("click.tabs", this.tabHandler);
+  };
+
+  Tabs.prototype.changeTab = function(tab) {
+    this.$navigationLinks.parent().removeClass(this.settings.selectedClass);
+    this.$containers.addClass(this.settings.hiddenClass);
+
+    if (typeof tab === "number") {
+      tab = this.$navigationLinks.eq(tab).attr("href");
+    }
+
+    this.$containers.filter(tab).removeClass(this.settings.hiddenClass);
+    this.$navigationLinks.filter('[href="' + tab + '"]').parent().addClass(this.settings.selectedClass);
+  };
+
+  Tabs.prototype.tabHandler = function(event) {
+    var $target = $(event.target);
+    $target.is("a") && event.preventDefault(); // if target is a link, prevent default action
+
+    this.changeTab($target.attr("href"));
+  };
+
+  Tabs.prototype.destroy = function() {
+    this.$navigationLinks.parent().removeClass(this.settings.selectedClass);
+    this.$containers.removeClass(this.settings.hiddenClass);
+
+    // Remove event handlers
+    this.$navigationLinks.off(".tabs");
+  };
+
+  $.fn.tabs = function(options) {
+    return this.each(function(index, element) {
+      element.tabs = new Tabs(element, options);
+    });
+  };
+
+  $.fn.tabsGoTo = function(tab) {
+    return this.each(function(index, element) {
+      if (element.tabs) {
+        element.tabs.changeTab(tab);
+      }
+    });
+  };
+
+  $.fn.untabs = function() {
+    return this.each(function(index, element) {
+      if (element.tabs) {
+        element.tabs.destroy();
+      }
+    });
+  };
+
 })(jQuery);
