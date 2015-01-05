@@ -37,17 +37,17 @@ The most basic example follows this DOM structure:
 
 And is initialized like so:
 ``` javascript
-$(".tabs").tabs();
+$(".tabs").wsol_tabs();
 ```
 
 The plugin can also be removed afterwards:
 ``` javascript
-$(".tabs").untabs();
+$(".tabs").data("wsol.tabs").destroy();
 ```
 
 Or manually changed to a specific tab (index or ID):
 ``` javascript
-$(".tabs").tabsGoTo(0);
+$(".tabs").data("wsol.tabs").changeTab(0);
 ```
 
 
