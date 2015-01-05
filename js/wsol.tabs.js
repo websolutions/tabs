@@ -1,5 +1,5 @@
 ﻿/**
- * wsol.tabs.js 3.0.0
+ * wsol.tabs.js 3.0.1
  * http://github.com/websolutions/tabs
  */
 
@@ -19,7 +19,7 @@
     base.init = function() {
       base.options = $.extend({}, $.wsol.tabs.defaultOptions, options);
 
-      base.$navLinks = base.$el.find(base.options.navigationLinkSelector);
+      base.$navLinks = base.$el.find(base.options.navigationLinkSelector).filter('[href^="#"]');
       base.$containers = base.$el.find(base.options.containerSelector);
 
       base.changeTab(0);
