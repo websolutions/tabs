@@ -1,5 +1,5 @@
 ﻿/**
- * wsol.tabs.js 3.0.1
+ * wsol.tabs.js 3.0.2
  * http://github.com/websolutions/tabs
  */
 
@@ -40,7 +40,7 @@
       base.$navLinks.filter('[href="' + tab + '"]').parent().addClass(base.options.selectedClass);
     };
 
-    base._tabHandler = function() {
+    base._tabHandler = function(event) {
       var $target = $(this);
       $target.is("a") && event.preventDefault(); // if target is a link, prevent default action
 
@@ -53,7 +53,7 @@
 
       // Remove event handlers
       base.$navLinks.off(".wsol.tabs");
-    }
+    };
 
     base.init();
   };
