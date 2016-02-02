@@ -38,6 +38,7 @@
 
       base.$containers.filter(tab).removeClass(base.options.hiddenClass);
       base.$navLinks.filter('[href="' + tab + '"]').parent().addClass(base.options.selectedClass);
+      $(window).trigger('resize');
     };
 
     base._tabHandler = function(event) {
