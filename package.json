@@ -1,6 +1,6 @@
 {
   "name": "wsol.tabs",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Content tabs that toggle content when clicked.",
   "contributors": [
     "Maxwell Barvian <max@barvian.me>"
