@@ -1,5 +1,5 @@
 ﻿/**
- * wsol.tabs.js 3.0.2
+ * wsol.tabs.js 3.1.0
  * http://github.com/websolutions/tabs
  */
 
