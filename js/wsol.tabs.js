@@ -36,8 +36,23 @@
         tab = base.$navLinks.eq(tab).attr("href");
       }
 
-      base.$containers.filter(tab).removeClass(base.options.hiddenClass);
-      base.$navLinks.filter('[href="' + tab + '"]').parent().addClass(base.options.selectedClass);
+      base.$containers.filter(tab).removeClass(base.options.hiddenClass).toggleClass(base.options.accordionHiddenClass);
+      base.$navLinks.filter('[href="' + tab + '"]').parent().addClass(base.options.selectedClass).toggleClass(base.options.accordionHiddenClass);
+
+      base.$containers.filter(function () {return $(this).attr('id') != tab.replace("#", "") }).addClass(base.options.accordionHiddenClass);
+      base.$navLinks.filter(function () { return $(this).attr('href') != tab }).parent().addClass(base.options.accordionHiddenClass);
+
+      if (base.options.autoScroll) {
+        var $elm = base.$containers.filter(tab)
+          , pageOffset = $(document).scrollTop()
+          , viewportHeight = $(window).height()
+          , elemOffset = $elm.offset().top
+          ;
+
+          if (elemOffset < pageOffset || elemOffset > (pageOffset + viewportHeight)) {
+            $("html, body").animate({ scrollTop: elemOffset }, 500);
+          }  
+      }
       $(window).trigger('resize');
     };
 
@@ -63,7 +78,9 @@
     navigationLinkSelector: "> .tab-navigation > li > a",
     containerSelector: "> .tab-container > div",
     selectedClass: "selected",
-    hiddenClass: "hidden"
+    hiddenClass: "hidden",
+    accordionHiddenClass: "accordion-hidden",
+    autoScroll: true
   };
 
   $.fn.wsol_tabs = function(options) {

@@ -61,4 +61,6 @@ Option                      | Type     | Description                            
 `containerSelector`         | String   | Selector for tab containers                                      | `> .tab-container > div`
 `selectedClass`             | String   | Class name to apply to the selected tab link                     | `selected`
 `hiddenClass`               | String   | Class name to apply to non-selected tabs                         | `hidden`
+`accordionHiddenClass`      | String   | Class name to apply to non-selected accordions                   | `accordion-hidden`
+`autoScroll`                | Boolean  | Keep active tab/accordion in viewport on change                  | true
 
