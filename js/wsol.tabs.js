@@ -18,6 +18,7 @@
 
     base.init = function() {
       base.options = $.extend({}, $.wsol.tabs.defaultOptions, options);
+      base.options.firstRun = true;
 
       base.$navLinks = base.$el.find(base.options.navigationLinkSelector).filter('[href^="#"]');
       base.$containers = base.$el.find(base.options.containerSelector);
@@ -42,7 +43,7 @@
       base.$containers.filter(function () {return $(this).attr('id') != tab.replace("#", "") }).addClass(base.options.accordionHiddenClass);
       base.$navLinks.filter(function () { return $(this).attr('href') != tab }).parent().addClass(base.options.accordionHiddenClass);
 
-      if (base.options.autoScroll) {
+      if (base.options.autoScroll && !base.options.firstRun) {
         var $elm = base.$containers.filter(tab)
           , pageOffset = $(document).scrollTop()
           , viewportHeight = $(window).height()
@@ -54,6 +55,8 @@
           }  
       }
       $(window).trigger('resize');
+
+      base.options.firstRun = false;
     };
 
     base._tabHandler = function(event) {
