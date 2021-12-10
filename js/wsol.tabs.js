@@ -1,9 +1,15 @@
 ﻿/**
- * wsol.tabs.js 3.1.2
+ * wsol.tabs.js 3.1.3
  * http://github.com/websolutions/tabs
  */
 
-;(function ($, window, document, undefined) {
+ ;(function(factory) {
+  if (typeof module === 'object' && typeof module.exports === 'object') {
+    factory(require('jquery'), window, document);
+  } else {
+    factory(jQuery, window, document);
+  }
+}(function ($, window, document, undefined) {
   if (!$.wsol) {
     $.wsol = {};
   }
