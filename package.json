@@ -1,9 +1,10 @@
 {
   "name": "@wearediagram/wsol.tabs",
-  "version": "3.1.4",
+  "version": "4.0.0",
   "description": "Content tabs that toggle content when clicked.",
   "contributors": [
-    "Maxwell Barvian <max@barvian.me>"
+    "Maxwell Barvian <max@barvian.me>",
+    "Nick Melville <nmelville@wearediagram.com>"
   ],
   "repository": {
     "type": "git",

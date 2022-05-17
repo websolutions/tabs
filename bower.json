@@ -1,9 +1,10 @@
 {
   "name": "wsol-tabs",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "homepage": "https://github.com/websolutions/tabs",
   "authors": [
-    "Maxwell Barvian <max@barvian.me>"
+    "Maxwell Barvian <max@barvian.me>",
+    "Nick Melville <nmelville@wearediagram.com>"
   ],
   "description": "Content tabs that toggle content when clicked.",
   "main": [
