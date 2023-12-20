@@ -48,7 +48,7 @@
       base.changeTab(0);
 
       // Handle events
-      base.$navLinks.on("click.wsol.tabs", base._tabHandler);
+      base.$navLinks.on(base.options.triggerEvent, base._tabHandler);
     };
 
     base.changeTab = function(tab) {
@@ -108,7 +108,8 @@
     selectedClass: "selected",
     hiddenClass: "hidden",
     accordionHiddenClass: "accordion-hidden",
-    autoScroll: true
+    autoScroll: true,
+    triggerEvent: "click.wsol.tabs"
   };
 
   $.fn.wsol_tabs = function(options) {
