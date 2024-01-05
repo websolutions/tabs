@@ -1,5 +1,5 @@
 ﻿/**
- * wsol.tabs.js 4.0.0
+ * wsol.tabs.js 4.0.3
  * http://github.com/websolutions/tabs
  */
 
@@ -76,6 +76,11 @@
             $("html, body").animate({ scrollTop: elemOffset }, 500);
           }  
       }
+      
+      if (base.options.changeCallback != null) {
+        base.options.changeCallback.call(base, tab);
+      }
+            
       $(window).trigger('resize');
 
       base.options.firstRun = false;
@@ -84,6 +89,10 @@
     base._tabHandler = function(event) {
       var $target = $(this);
       event.preventDefault(); // if target is a link, prevent default action
+      
+      if (base.options.triggerCallback != null) {
+        base.options.triggerCallback.call(base, $target);
+      }
 
       base.changeTab("#" + $target.attr("aria-controls"));
     };
@@ -109,7 +118,9 @@
     hiddenClass: "hidden",
     accordionHiddenClass: "accordion-hidden",
     autoScroll: true,
-    triggerEvent: "click.wsol.tabs"
+    triggerEvent: "click.wsol.tabs",
+    changeCallback: null,
+    triggerCallback: null
   };
 
   $.fn.wsol_tabs = function(options) {

@@ -65,6 +65,27 @@
         </div>
       </div>
     </div>
+    
+    <div class="tabs" id="callback">
+      <ul class="tab-navigation">
+        <li class="selected">
+          <a href="#tab1">Tab Title 1</a>
+        </li>
+        <li>
+          <a href="#tab2">Tab Title 2</a>
+        </li>
+      </ul>
+      <div class="tab-container">
+        <div id="tab1">
+          <h3>Tab Title 1</h3>
+          <p>Tab Content 1</p>
+        </div>
+        <div id="tab2" class="hidden">
+          <h3>Tab Title 2</h3>
+          <p>Tab Content 2</p>
+        </div>
+      </div>
+    </div>
 
     <p>&nbsp;</p>
     <p>&nbsp;</p>
@@ -74,6 +95,7 @@
 
     <p> <button onclick="$('#default').wsol_tabs();">Make Default Tabs</button> </p>
     <p> <button onclick="$('#hover').wsol_tabs({ triggerEvent:'mouseover' });">Make Hover Tabs</button> </p>
+    <p> <button onclick="$('#callback').wsol_tabs({ changeCallback:function(base, tab) {console.log('changeCallback '+base, tab)}, triggerCallback:function(base, $target) {console.log('triggerCallback '+base, $target)} });">Make Callback Tabs</button> </p>
     <p> <button onclick="$('.tabs').each( function() { $(this).data('wsol.tabs').destroy(); } );">Destroy All Tabs</button> </p>
 
   <body>
