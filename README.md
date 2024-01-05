@@ -63,4 +63,7 @@ Option                      | Type     | Description                            
 `hiddenClass`               | String   | Class name to apply to non-selected tabs                         | `hidden`
 `accordionHiddenClass`      | String   | Class name to apply to non-selected accordions                   | `accordion-hidden`
 `autoScroll`                | Boolean  | Keep active tab/accordion in viewport on change                  | true
+`triggerEvent`              | String   | Event used to trigger tab change                                 | `click`
+`changeCallback`            | Function | Function called when tab is changed                              | `null`
+`triggerCallback`           | Function | Function called when tab change is triggered                     | `null`
 
