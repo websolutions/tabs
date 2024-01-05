@@ -1,5 +1,5 @@
 ﻿/**
- * wsol.tabs.js 4.0.2
+ * wsol.tabs.js 4.0.3
  * http://github.com/websolutions/tabs
  */
 
@@ -118,7 +118,9 @@
     hiddenClass: "hidden",
     accordionHiddenClass: "accordion-hidden",
     autoScroll: true,
-    triggerEvent: "click.wsol.tabs"
+    triggerEvent: "click.wsol.tabs",
+    changeCallback: null,
+    triggerCallback: null
   };
 
   $.fn.wsol_tabs = function(options) {
